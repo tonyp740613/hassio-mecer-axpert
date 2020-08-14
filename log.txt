@@ -1,0 +1,56 @@
+[s6-init] making user provided files available at /var/run/s6/etc...exited 0.
+[s6-init] ensuring user provided files have correct perms...exited 0.
+[fix-attrs.d] applying ownership & permissions fixes...
+[fix-attrs.d] done.
+[cont-init.d] executing container initialization scripts...
+[cont-init.d] done.
+[services.d] starting services
+[services.d] done.
+Let us Go!!
+connect
+connecting to broker
+QID
+Command=QID
+CRC=0xd6ea
+scomm=QIDÖê
+bcomm=b'QID\xd6\xea\r'
+r=b'(92332004101045\x14\xb2\r'
+j=(92332004101045²
+['(92332004101045\x14²\r']
+['92332004101045\x14²\r']
+response=92332004101045
+Reading from inverter 92332004101045
+QPIGS
+Command=QPIGS
+CRC=0xb7a9
+scomm=QPIGS·©
+bcomm=b'QPIGS\xb7\xa9\r'
+r=b'(229.0 49.9 229.0 49.9 0177 0102 006 476 26.95 000 100 0540 0000 000.0 27.00 00000 10011101 03 04 00000 101D\xf6\r'
+j=(229.0 49.9 229.0 49.9 0177 0102 006 476 26.95 000 100 0540 0000 000.0 27.00 00000 10011101 03 04 00000 101Dö
+['(229.0 49.9 229.0 49.9 0177 0102 006 476 26.95 000 100 0540 0000 000.0 27.00 00000 10011101 03 04 00000 101Dö\r']
+['229.0', '49.9', '229.0', '49.9', '0177', '0102', '006', '476', '26.95', '000', '100', '0540', '0000', '000.0', '27.00', '00000', '10011101', '03', '04', '00000', '101Dö\r']
+response=229.0 49.9 229.0 49.9 0177 0102 006 476 26.95 000 100 0540 0000 000.0 27.00 00000 10011101 03 04 00000 
+QPIGS=229.0 49.9 229.0 49.9 0177 0102 006 476 26.95 000 100 0540 0000 000.0 27.00 00000 10011101 03 04 00000 
+['229.0', '49.9', '229.0', '49.9', '0177', '0102', '006', '476', '26.95', '000', '100', '0540', '0000', '000.0', '27.00', '00000', '10011101', '03', '04', '00000', '']
+qpigs_data="GridVoltage":229.0,"GridFrequency":49.9,"ACOutputVoltage":229.0,"ACOutputFrequency":49.9,"ACOutputApparentPower":177,"ACOutputActivePower":102,"OutputLoadPercent":6,"BusVoltage":476,"BatteryVoltage": 26.95,"BatteryChargingCurrent":0,"BatteryCapacity":100,"DeviceStatus":"10011101"
+QMOD
+Command=QMOD
+CRC=0x49c1
+scomm=QMODIÁ
+bcomm=b'QMODI\xc1\r'
+r=b'(L\x06\x07\r'
+j=(L
+['(L\x06\x07\r']
+['L\x06\x07\r']
+response=L
+QMOD=L
+qmod_data="Mode":"L"
+{"SerialNumber":"2332004101045","GridVoltage":229.0,"GridFrequency":49.9,"ACOutputVoltage":229.0,"ACOutputFrequency":49.9,"ACOutputApparentPower":177,"ACOutputActivePower":102,"OutputLoadPercent":6,"BusVoltage":476,"BatteryVoltage": 26.95,"BatteryChargingCurrent":0,"BatteryCapacity":100,"DeviceStatus":"10011101","Mode":"L"}
+power/axpert {"SerialNumber":"2332004101045","GridVoltage":229.0,"GridFrequency":49.9,"ACOutputVoltage":229.0,"ACOutputFrequency":49.9,"ACOutputApparentPower":177,"ACOutputActivePower":102,"OutputLoadPercent":6,"BusVoltage":476,"BatteryVoltage": 26.95,"BatteryChargingCurrent":0,"BatteryCapacity":100,"DeviceStatus":"10011101","Mode":"L"}
+data published to mqtt broker
+data published 
+[cmd] /run.sh exited 0
+[cont-finish.d] executing container finish scripts...
+[cont-finish.d] done.
+[s6-finish] waiting for services.
+[s6-finish] sending all processes the TERM signal.
