@@ -7,4 +7,5 @@ MQTT_PASS="$(jq --raw-output '.mqtt_pass' $CONFIG_PATH)" \
 MQTT_CLIENT_ID="$(jq --raw-output '.mqtt_client_id' $CONFIG_PATH)" \
 MQTT_TOPIC="$(jq --raw-output '.mqtt_topic' $CONFIG_PATH)" \
 INTERVAL="$(jq --raw-output '.interval' $CONFIG_PATH)" \
+LOGGING_LEVEL="$(jq --raw-output '.logging_level' $CONFIG_PATH)" \
 python3 /monitor.py
