@@ -243,22 +243,22 @@ def send_data(data, topic):
 
 ############
 def main():
-    print('Let us Go!!')
+    print('Let us Go!!', file=sys.stderr)
 
     counter=0
     while True:
         if counter == 10:
-            print('Unable to connect to mqtt broker')
+            print('Unable to connect to mqtt broker', file=sys.stderr)
             sys.exit()
 
         response = mqtt_connect()  #connect to MQTT broker
 
         if not response:
-            print("mqtt connection error")
+            print("mqtt connection error", file=sys.stderr)
             counter+=1
             time.sleep(1)
         else:
-            print("mqtt connection success")
+            print("mqtt connection success", file=sys.stderr)
             break
     interval = int(os.environ['INTERVAL'])
 
@@ -290,7 +290,7 @@ def main():
 
     qpigs_data = get_data_QPIGS()
     if qpigs_data == '':
-        print('QPIGS no data')
+        print('QPIGS no data', file=sys.stderr)
         axpert_data = '{"SerialNumber":"' + 'QPIGS no data' + '"}'
         send = send_data(axpert_data, os.environ['MQTT_TOPIC']) #publish data to mqtt broker
         if send == 1:
@@ -299,11 +299,11 @@ def main():
             print("error sending data to mqtt broker")
             sys.exit()
 
-    print('qpigs:'+qpigs_data)
+##    print('qpigs:'+qpigs_data)
     
     qmod_data = get_data_QMOD()
     if qmod_data == '':
-        print('QMOD no data')
+        print('QMOD no data', file=sys.stderr)
         axpert_data = '{"SerialNumber":"' + 'QMOD no data' + '"}'
         send = send_data(axpert_data, os.environ['MQTT_TOPIC']) #publish data to mqtt broker
         if send == 1:
@@ -312,16 +312,16 @@ def main():
             print("error sending data to mqtt broker")
             sys.exit()
 
-    print('qmod:'+qmod_data)
+##    print('qmod:'+qmod_data)
     
     axpert_data = '{' + '"SerialNumber":"' + str(interval) + '",' + qpigs_data + ',' + qmod_data + '}'
-    print('axpert_data:' + axpert_data)
+##    print('axpert_data:' + axpert_data)
 
     send = send_data(axpert_data, os.environ['MQTT_TOPIC']) #publish data to mqtt broker
     if send == 1:
-        print("data published to mqtt broker")
+        print("data published to mqtt broker:" + axpert_data, file=sys.stderr)
     elif send == 0:
-        print("error sending data to mqtt broker")
+        print("error sending data to mqtt broker", file=sys.stderr)
         sys.exit()
 
     timer = 0
@@ -349,7 +349,7 @@ def main():
 
             qpigs_data = get_data_QPIGS()
             if qpigs_data == '':
-                print('QPIGS no data')
+                print('QPIGS no data', file=sys.stderr)
                 axpert_data = '{"SerialNumber":"' + 'QPIGS no data' + '"}'
                 send = send_data(axpert_data, os.environ['MQTT_TOPIC']) #publish data to mqtt broker
                 if send == 1:
@@ -362,7 +362,7 @@ def main():
 ##
             qmod_data = get_data_QMOD()
             if qmod_data == '':
-                print('QMOD no data')
+                print('QMOD no data', file=sys.stderr)
                 axpert_data = '{"SerialNumber":"' + 'QMOD no data' + '"}'
                 send = send_data(axpert_data, os.environ['MQTT_TOPIC']) #publish data to mqtt broker
                 if send == 1:
@@ -378,9 +378,9 @@ def main():
 
             send = send_data(axpert_data, os.environ['MQTT_TOPIC']) #publish data to mqtt broker
             if send == 1:
-                print("data published to mqtt broker")
+                print("data published to mqtt broker:" + axpert_data, file=sys.stderr)
             elif send == 0:
-                print("error sending data to mqtt broker")
+                print("error sending data to mqtt broker", file=sys.stderr)
                 sys.exit()
             time.sleep(2)
             timer = 0
